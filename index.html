@@ -95,7 +95,6 @@
 
       .flipBox {
         position: relative;
-        text-align: center;
         transition: transform 1.2s;
         transform-style: preserve-3d;
         pointer-events: all;
@@ -160,6 +159,14 @@
         max-width: 100%;
         padding: 0;
       }
+      .frontHeader {
+        font-size: 3em;
+        padding-top: 80px;
+        text-align: center;
+      }
+      a {
+        pointer-events: all;
+      }
     </style>
   </head>
   <body>
@@ -175,9 +182,16 @@
           <div class="boxWide flipBox">
             <div class="overlay"></div>
             <div class="flipFront">
-              <img src="https://via.placeholder.com/150" />
+              <h1 class="frontHeader">About me</h1>
             </div>
-            <div class="flipBack"></div>
+            <div class="flipBack">
+              <h2 class="light">
+                - Multimedia-designer with more focus on functionality than
+                design.
+              </h2>
+              <h2 class="light">- Wants to learn</h3>
+              <h2 class="light">- Likes to work at night</h3>
+            </div>
           </div>
 
           <div class="boxNarrow flipBox">
@@ -195,13 +209,22 @@
 
           <div class="boxNarrow flipBox">
             <div class="overlay"></div>
-            <div class="flipFront"></div>
-            <div class="flipBack"></div>
+            <div class="flipFront">
+              <h1 class="frontHeader">Alm. Brand</h1>
+            </div>
+            <div class="flipBack">
+              <a class="frontHeader" href="http://mboegvald.dk/kea/06-brugercentreret/almbrand_done/">Link's not working</a>
+            </div>
           </div>
           <div class="boxWide flipBox">
-            <div class="overlay"></div>
-            <div class="flipFront"></div>
-            <div class="flipBack"></div>
+            <div class="overlay">
+            </div>
+            <div class="flipFront">
+              <h1 class="frontHeader">Karlskicks</h1>
+            </div>
+            <div class="flipBack">
+              <a class="frontHeader" href="http://mboegvald.dk/kea/2semEksamen/">Link's not working</a>
+            </div>
           </div>
         </div>
       </div>
