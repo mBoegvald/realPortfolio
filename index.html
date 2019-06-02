@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Portfolio</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Righteous&display=swap"
+      href="https://fonts.googleapis.com/css?family=Montserrat|Righteous&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css" />
     <style>
       * {
         margin: 0;
         padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
       #hero {
         background: url(background.jpg) no-repeat center center fixed;
@@ -23,37 +28,109 @@
         max-height: 100vh;
         height: 100vh;
         position: relative;
+        overflow: hidden;
+        font-family: "Righteous", cursive;
       }
 
       .p1 {
-        color: white;
-        font-size: 5em;
-        font-family: "Righteous", cursive;
+        font-size: 4vw;
         position: absolute;
         left: -20%;
         top: 20%;
       }
       .p2 {
-        color: white;
-        font-size: 7em;
-        font-family: "Righteous", cursive;
+        font-size: 5.5vw;
         position: absolute;
         left: -70%;
         top: 30%;
       }
+      .p3 {
+        font-size: 4.5vw;
+        position: absolute;
+        left: -80%;
+        top: 45%;
+      }
       p {
+        color: white;
         transition-duration: 1s;
         transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
+      .arrow {
+        cursor: pointer;
+        transform: translate(-50%, -50%) rotate(45deg);
+        position: absolute;
+        height: 5vw;
+        width: 5vw;
+        border-style: solid;
+        border-color: white;
+        border-width: 0px 2px 2px 0px;
+        transition: 0.2s;
+        top: 70%;
+        left: 50%;
+        opacity: 0;
+      }
+      .arrow:hover {
+        border-width: 0px 5px 5px 0px;
+      }
 
-      /* @keyframes slide-right {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(250%);
-        }
-      } */
+      #content {
+        height: 80vh;
+        background-color: rgb(211, 205, 187);
+        font-family: "Montserrat", sans-serif;
+        overflow: hidden;
+      }
+
+      #content .wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        grid-column-gap: 10px;
+        margin: auto;
+        max-width: 80%;
+        grid-auto-flow: row;
+        height: 100%;
+        line-height: 1.5;
+      }
+
+      #content .about {
+        grid-column: 1 / 6;
+        grid-row: 2 / 5;
+      }
+      #content .contact {
+        grid-column: 1 / 6;
+        grid-row: 6 / 8;
+        line-height: 1.8;
+      }
+      .wrapper h1 {
+        font-size: 2vw;
+        margin-bottom: 20px;
+        color: rgb(124, 119, 119);
+      }
+      .wrapper p {
+        color: black;
+        font-size: 1vw;
+      }
+      .wrapper a {
+        color: rgb(11, 11, 68);
+        text-decoration: none;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        transition: 0.3s;
+      }
+      .wrapper a:hover,
+      .wrapper a:focus {
+        color: rgb(124, 124, 223);
+        background-size: 100% 2px;
+      }
+
+      .swiper-container {
+        height: calc((100% / 7) * 6);
+        width: calc((100% / 6) * 5);
+        grid-column: 7 / 13;
+        grid-row: 3 / 11;
+      }
     </style>
   </head>
   <body>
@@ -61,20 +138,101 @@
       <p class="p1">Hello!</p>
 
       <p class="p2">My name is Miklas Bøgvald</p>
+      <p class="p3">and i'm studying multimedia-design</p>
+      <a href="#content"> <div class="arrow"></div></a>
     </section>
-    <section id="content"></section>
+    <section id="content">
+      <div class="wrapper">
+        <div class="about">
+          <h1>About me</h1>
+          <p>Hello, Miklas here!</p>
+          <p>I'm studying multimedia-design at Københavns Erhversakademi</p>
+          <br />
+          <p>My main skills lies in HTML, CSS and JavaScript,</p>
+          <p>especially JavaScript programming has caught my interest.</p>
+        </div>
+        <div class="contact">
+          <h1>Contacts</h1>
+          <p>Email: miklasbogvald@gmail.com</p>
+          <p>Phone: 27 89 08 55</p>
+          <p>
+            <a
+              href="https://www.linkedin.com/in/miklas-b%C3%B8gvald-a16809116/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </p>
+          <p>
+            <a
+              href="https://www.facebook.com/profile.php?id=1826551423"
+              target="_blank"
+              >Facebook</a
+            >
+          </p>
+        </div>
+
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+
+            <div class="swiper-slide">Slide 3</div>
+
+            <div class="swiper-slide">Slide 3</div>
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+    </section>
+    <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
     <script>
       window.addEventListener("DOMContentLoaded", init);
 
       function init() {
         console.log("init");
         setTimeout(animations, 1000);
+        let mySwiper = new Swiper(".swiper-container", {
+          effect: "cube",
+          grabCursor: true,
+          cubeEffect: {
+            shadow: true,
+            slideShadows: true,
+            shadowOffset: 20,
+            shadowScale: 0.94
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          },
+          pagination: {
+            el: ".swiper-pagination"
+          }
+        });
       }
 
       function animations() {
         console.log("animations");
-        document.querySelector(".p1").style.transform = "translate(250%)";
-        setTimeout();
+        document.querySelector(".p1").style.transform = "translate(240%)";
+        setTimeout(function() {
+          document.querySelector(".p2").style.transform = "translate(117%)";
+          setTimeout(function() {
+            document.querySelector(".p3").style.transform = "translate(130%)";
+            setTimeout(function() {
+              document.querySelector(".arrow").style.opacity = "1";
+            }, 1500);
+          }, 1000);
+        }, 1000);
       }
     </script>
   </body>
